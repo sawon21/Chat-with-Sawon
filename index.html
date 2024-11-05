@@ -1,1 +1,472 @@
-vgg
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You Ready? Countdown to Your Future </title>
+    <meta property="og:image" content="time.jpg">
+<link rel="icon" href="time.jpg"/>    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FlipDown CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  
+    <style>
+    @import url('https://fonts.maateen.me/apona-lohit/font.css');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+    
+    
+        body {
+            background: #E5C1CD;
+            color: #ffffff;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            font-size: 1.25rem;
+            font-family: 'Pacifico', cursive;
+        }
+        .typing-quote {
+            font-family: 'AponaLohit', sans-serif;
+            font-size: 1.2rem;
+            color: #ffeb3b;
+            text-shadow: 2px 2px #000;
+        }
+        .countdown-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 120px;
+        }
+        .card {
+            border: none;
+            background: #E69D45;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            color: #ffffff;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        .card-header {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: #251a41;
+            text-align: center;
+            padding: 15px 0;
+        }
+       .sub-card-header{
+            font-size: 1rem;
+            font-weight: 700;
+            background: brown;
+            text-align: center;
+            padding: 15px 0; 
+       }
+        .card-body {
+            padding: 10px;
+        }
+        .flipdown {
+            margin: 10px auto;
+        }
+        .btn-custom {
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background: black;
+            transform: scale(1.1);
+        }
+                /* Modal Styling */
+        .modal-content {
+            background: #2E2E41;
+            color: #f5f5f5;
+            font-family: 'AponaLohit', sans-serif;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.6);
+        }
+        .modal-header, .modal-footer {
+            border: none;
+            padding: 2px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .modal-footer .btn-secondary {
+            background: red;
+            padding: 10;
+            border: none;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .modal-footer .btn-secondary:hover {
+            background: #333;
+        }
+                footer {
+            background-color: #333;
+            color: #fff;
+            padding: 0px 0px;
+            text-align: center;
+            font-size: 8px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+.card-body a{
+          text-decoration: none;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="fixed-header">
+    <p>Upcoming Admission Test 2024-25</p>
+    <span id="quote" class="typing-quote"></span>
+</div>
+
+<div class="container countdown-container">
+  
+     <!-- CountdCountdow BUP --->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="card text-center">
+            <div class="card-header">
+                BUP
+            </div>
+            <div class="sub-card-header">
+ 13 & 14 December,2024 
+</div>            
+            <div class="card-body">
+                <div id="flipdown4" class="flipdown"></div>
+                <button class="btn btn-custom mt-3">Details </button>
+            </div>
+        </div>
+    </div>
+  
+  
+  
+      <!-- Countdown for January 17, 2025 -->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="card text-center">
+            <div class="card-header">
+                Medical Admission 
+            </div>
+            <div class="sub-card-header">
+                17 January, 2025
+            </div>
+            <div class="card-body">
+                <div id="flipdown3" class="flipdown"></div>
+                <button class="btn btn-custom mt-3" data-bs-toggle="modal" data-bs-target="#detailsModal3">Details</button>
+            </div>
+        </div>
+    </div>
+    <!-- Details Modal for Medical Exam -->
+    <div class="modal fade" id="detailsModal3" tabindex="-1" aria-labelledby="detailsModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel1">Medical Exam</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <img src="Medical.jpg" width="90%"> <hr>
+                  <p><b><i> <u>ভর্তি পরীক্ষার তারিখ :</u> </i></b> <mark>১৪ই ফেব্রুয়ারী, ২০২৫ইং</mark> </p>
+                  <p><b><i> <u>আবেদন এর সময় :</u></i></b> <mark>
+                  
+                  </mark> </p>   
+                    <p><b><i><u>আবেদন ফি :</u></i></b> <mark>
+                    
+                    </mark> </p>      
+                    <p><b><i><u>আসন সংখ্যা :</u> </i></b> <mark>৫৩৮০টি</mark> </p>
+                    <p><b><i><u>আবেদন যোগ্যতা :</u></i></b> <mark>SSC + HSC ন্যূনতম GPA 9.00 (HSC পরীক্ষায় জীববিজ্ঞানে জিপিএ 4.00 এর কম নয়) </mark> </p>
+                    <p><b><i> <u>পরীক্ষার ধরন  :</u></i></b> <mark>১০০ নম্বর (MCQ), সময়: ১ ঘণ্টা। <i>(ক্যালকুলেটর ব্যবহার করা যাবে না)</i></mark> </p>
+                    <p><b><i> <u>বিষয় ও প্রশ্ন সংখ্যা :</u> </i></b> <mark>জীববিজ্ঞান-৩০, রসায়ন-২৫, পদার্থবিজ্ঞান-২০, ইংরেজি-১৫ ও সাধারণ জ্ঞান (বাংলাদেশের ইতিহাস ও মুক্তিযুদ্ধ)-১০ </mark> </p>
+                    <p><b><i><u>ফলাফল নির্ণয় পদ্ধতি:</u></i></b> <mark>(SSC GPA × 15) + (HSC GPA × 25) + ভর্তি পরীক্ষায় 100 নম্বর সর্বমোট ৩০০ নম্বরের মধ্যে মেধা তালিকা প্রকাশ করা হয়। (২০২৩ সালের ভর্তি বিজ্ঞপ্তি অনুসারে) </mark> </p>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  
+  
+  
+  
+    <!-- Countdown for February 1, 2025 -->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="card text-center">
+      <div class="card-header">
+                Dhaka University 
+            </div>
+            <div class="sub-card-header">
+               1 February, 2025
+            </div>
+            <div class="card-body">
+                <div id="flipdown1" class="flipdown"></div>
+                <button class="btn btn-custom mt-3" data-bs-toggle="modal" data-bs-target="#detailsModal1">Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Modal for Dhaka University -->
+    <div class="modal fade" id="detailsModal1" tabindex="-1" aria-labelledby="detailsModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel1">ঢাকা বিশ্ববিদ্যালয় 'ক' ইউনিট (DU 'KA' Unit)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <img src="DU.jpg" width="90%"> <hr>
+                  <p><b><i> <u>ভর্তি পরীক্ষার তারিখ :</u> </i></b> <mark>১লা ফেব্রুয়ারী, ২০২৫ইং</mark> </p>
+                  <p><b><i> <u>আবেদন এর সময় :</u></i></b> <mark>৪ নভেম্বর দুপুর ১২টা হতে ২৫ নভেম্বর রাত ১১টা ৫৯ মিনিট পর্যন্ত। </mark> </p>   
+                    <p><b><i><u>আবেদন ফি :</u></i></b> <mark>১০৫০/= টাকা</mark> </p>      
+                    <p><b><i><u>আসন সংখ্যা :</u> </i></b> <mark>১৮৫১ টি</mark> </p>
+                    <p><b><i><u>আবেদন যোগ্যতা :</u></i></b> <mark>SSC ও HSC ৪র্থ বিষয়সহ ন্যূনতম GPA 3.5 এবং সর্বমোট GPA 8.00 থাকতে হবে।</mark> </p>
+                    <p><b><i> <u>পরীক্ষার ধরন  :</u></i></b> <mark>১০০ নম্বর (MCQ 60 + লিখিত 40), সময়: ১ ঘণ্টা ৩০ মিনিট। <i>(ক্যালকুলেটর ব্যবহার করা যাবে না)</i></mark> </p>
+                    <p><b><i> <u>বিষয় ও প্রশ্ন সংখ্যা :</u> </i></b> <mark>পদার্থবিজ্ঞান + রসায়ন + নৈর্বাচনিক বিষয় + (৪র্থ বিষয়/বাংলা/ইংরেজি) যেকোনো ১টি। <br> MCQ = প্রতিটি বিষয়ে ১৫টি করে প্রশ্ন (১৫ নম্বর)। লিখিত = প্রতিটি বিষয়ে ১০ নম্বর (প্রতিটি প্রশ্নের মান ২ থেকে ৫ এর মধ্যে)।</mark> </p>
+                    <p><b><i><u>ফলাফল নির্ণয় পদ্ধতি:</u></i></b> <mark>ভর্তি পরীক্ষায় প্রাপ্ত নম্বর + (SSC GPA × 2) + (HSC GPA x 2)</mark> </p>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Countdown for February 8, 2025 -->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="card text-center">
+            <div class="card-header">
+               BUET
+            </div>
+            <div class="sub-card-header">
+                8 February, 2025
+            </div>
+            <div class="card-body">
+                <div id="flipdown2" class="flipdown"></div>
+                <button class="btn btn-custom mt-3" data-bs-toggle="modal" data-bs-target="#detailsModal2">Details</button>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Details Modal for Medical Exam -->
+    <div class="modal fade" id="detailsModal2" tabindex="-1" aria-labelledby="detailsModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel2"> বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয় (BUET)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <img src="Buet.jpg" width="90%"> <hr>
+                  <p><b><i> <u>ভর্তি পরীক্ষার তারিখ :</u> </i></b> <mark>৮ই ফেব্রুয়ারী, ২০২৫ইং</mark> </p>
+                  <p><b><i> <u>আবেদন এর সময় :</u></i></b> <mark>
+                  
+                  </mark> </p>   
+                    <p><b><i><u>আবেদন ফি :</u></i></b> <mark>
+                    
+                    </mark> </p>      
+                    <p><b><i><u>আসন সংখ্যা :</u> </i></b> <mark>১৩০৫ টি + সংরক্ষিত আসন ৪ টি। মোট ১৩০৯টি। </mark> </p>
+                    <p><b><i><u>আবেদন যোগ্যতা :</u></i></b> <mark>SSC = গণিত, পদার্থবিজ্ঞান ও রসায়নসহ ৫.০০ এর স্কেলে ন্যূনতম জিপিএ ৪.০০ পেতে হবে। <br> 
+    HSC = ৫.০০ এর স্কেলে জিপিএ ৫.০০ এবং উচ্চতর গণিত, পদার্থবিজ্ঞান ও রসায়ন বিষয়সমূহের প্রতিটিতে ন্যূনতম জিপি ৫.০০ পেতে হবে।</mark> </p>
+                    <p><b><i> <u>পরীক্ষার ধরন  :</u></i></b> <mark>১ম ধাপ: প্রিলিমিনারি পরীক্ষা ১০০ নম্বর (MCQ), সময়: ১ ঘণ্টা। (ক্যালকুলেটর ব্যবহার করা যবে)। (বাছাইকৃত ১ম থেকে ১৮০০০তম পর্যন্ত সকল আবেদনকারী প্রাক-নির্বাচনী পরীক্ষায় অংশগ্রহণ করতে পারে) <br>
+    ২য় ধাপ: লিখিত পরীক্ষা ৪০০ নম্বর, সময়: ২ ঘণ্টা। (গ্রুপ 'খ' আর্কিটেকচার ৪০০ নম্বর, সময়: ১ ঘণ্টা ৩০ মিনিট) (প্রিলিমিনারি পরীক্ষায় নির্বাচিত ৬০০০ জন ২য় ধাপের লিখিত পরীক্ষায় অংশগ্রহণের সুযোগ পায়)</i></mark> </p>
+                    <p><b><i> <u>বিষয় ও প্রশ্ন সংখ্যা :</u> </i></b> <mark>    প্রিলিমিনারি পরীক্ষা (MCQ): উচ্চতর গণিত-৩৪, পদার্থবিজ্ঞান-৩৩ ও রসায়ন-৩৩ 
+   <br> লিখিত পরীক্ষা : উচ্চতর গণিত-১৪, পদার্থবিজ্ঞান-১৩ ও রসায়ন-১৩ 
+    </mark> </p>
+                    <p><b><i><u>ফলাফল নির্ণয় পদ্ধতি:</u></i></b> <mark>শুধুমাত্র লিখিত পরীক্ষায় প্রাপ্ত নম্বরের উপর মেধা তালিকা প্রকাশ করা হয়।</mark> </p>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+
+
+
+ 
+
+  <!---   Countdown for 12 April, 2025 --->
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="card text-center">
+            <div class="card-header">
+                Rajshahi University  
+            </div>
+            <div class="sub-card-header">
+                12 April, 2025
+            </div>
+            <div class="card-body">
+                <div id="flipdown5" class="flipdown"></div>
+                <button class="btn btn-custom mt-3">Details </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    <!--- report us --->
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="card text-center">
+            <div class="card-header">
+                Report/suggest <br>any issues
+            </div>
+            <div class="sub-card-header">
+                Last Update : 28 October, 2024 <br>
+                <small>version - 1.1</small>
+            </div>
+            <div class="card-body">
+              <small style="color:black">page visitor</small>
+              <a ><img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=a244xr3xhg46kzytjrrayuwjxe7an8z6" border="0" title="hit counter" alt="hit counter"></a> <br> <br>
+<h1 style="font-family: 'AponaLohit', sans-serif; color:blue">যেকোন কিছুর পরামর্শ/রিপোর্ট দিন </h1>
+                <button class="btn btn-custom mt-3"> <a href="report.html">Report us </a></button>
+            </div>
+        </div>
+    </div>
+<br><br>
+
+
+
+
+
+  <!-- Install Notification Banner -->
+  <div id="installNotification" class="install-notification" style="display: none;">
+    <p>Install this app for a better experience! (Offline) </p>
+    <button id="installBtn" class="btn btn-primary">Install</button>
+    <button onclick="document.getElementById('installNotification').style.display = 'none';" class="btn btn-secondary">Dismiss</button>
+  </div>
+
+
+
+
+
+
+
+<footer>  <br>
+    <h5 style="color:white"><pre>© Developed by <a style="color:#FFE4E1" href="https://www.facebook.com/mehedialhasansawon217">Mehedi Al Hasan Sawon</pre> </a></h5>
+</footer>
+<!-- Bootstrap and FlipDown JS Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const countdownDates = [
+        new Date('2025-02-01T00:00:00').getTime() / 1000,
+        new Date('2025-02-08T00:00:00').getTime() / 1000,
+        new Date('2025-01-17T00:00:00').getTime() / 1000,
+        new Date('2024-12-13T00:00:00').getTime() / 1000,
+        new Date('2025-04-12T00:00:00').getTime() / 1000
+    ];
+
+    const flipdowns = [
+        new FlipDown(countdownDates[0], 'flipdown1').start(),
+        new FlipDown(countdownDates[1], 'flipdown2').start(),
+        new FlipDown(countdownDates[2], 'flipdown3').start(),
+     new FlipDown(countdownDates[3], 'flipdown4').start(),
+      new FlipDown(countdownDates[4], 'flipdown5').start()
+    ];
+
+const quotes = [
+  "নাইট্রেট অ্যানায়নে  ইলেকট্রন রয়েছে - 32টি [CU-A: 22-23]",
+"ডিউটেরিয়ামে নিউট্রনের সংখ্যা - 1টি  [CU-A: 21-22]",
+  "IUPAC পদ্ধতিতে CH3-CH(CH3)-CH2-C(CH3)(OH)-CH2-CH3 যৌগটির নাম - 3,5 ডাইমিথাইল হেক্সানল-3  [GST-A:23-24]",
+  "ইউরিয়া সার উৎপাদনে অন্তর্বর্তী উৎপাদ হলো - H2NCOONH4 [RU-C: 19-20]",
+    "কোন বস্তুর ভর 10 kg হলে পৃথিবীর কেন্দ্রে বস্তুটির ওজন- 0(শূন্য) N [CU: 21-22]",
+    "কোনো বস্তুর বেগ আলোর বেগের সমান হলে এর ভর হবে - অসীম। [DU:23-24]",
+    "6630 Å তরঙ্গদৈর্ঘ্য এর ফোটনের শক্তি - 3*10^-19 J [BUTEX: 16-17]",
+    "আলোর বেগে ধাবিত কোন বস্তুর ভর হবে - আসীম। [PUST B:17-18]",
+    "কৃষ্ণবস্তুর বিকিরণ ব্যাখ্যা করে - প্ল্যাঙ্কের তত্ত্ব [GST: 22-23]", 
+    "ফোটনের স্থির ভর - 0(শূন্য) [CU-A: 22-23]",
+    "এক্স-রে এর একক - রন্টজেন। [CU-A: 22-23]",
+    "ওজোন স্তর ক্ষয়ের জন্য দায়ী - CFC-12, CCL4, UV radiation [DU:23-24]",
+    "কয়লার সবচেয়ে বেশি ক্ষতিকর উপাদান - সালফার [JU-A-19,20]",
+    "প্রাকৃতিক আর্দ্র গ্যাসে H2S এর পরিমান - 0.08-0.13%  [JU-D:19-20]"
+];
+
+function getRandomIndex() {
+    return Math.floor(Math.random() * quotes.length);
+}
+
+function typeQuote() {
+    let quoteIndex = getRandomIndex();
+    const quote = quotes[quoteIndex];
+    let typedText = "";
+    let charIndex = 0;
+    
+    function type() {
+        if (charIndex < quote.length) {
+            typedText += quote.charAt(charIndex);
+            document.getElementById("quote").textContent = typedText;
+            charIndex++;
+            setTimeout(type, 80);
+        } else {
+            setTimeout(deleteQuote, 10000);
+        }
+    }
+
+    function deleteQuote() {
+        if (typedText.length > 0) {
+            typedText = typedText.slice(0, -1);
+            document.getElementById("quote").textContent = typedText;
+            setTimeout(deleteQuote, 30);
+        } else {
+            quoteIndex = getRandomIndex();
+            setTimeout(type, 1000);
+        }
+    }
+
+    type();
+}
+
+typeQuote();
+});
+</script>
+  <script src="app.js"></script>
+</body>
+</html>
