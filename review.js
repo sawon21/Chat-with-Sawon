@@ -1,17 +1,7 @@
         // Default Configuration
-        let CACHE_NAME = "smart_review_cache_v2"; // Default cache name
+        let CACHE_NAME = "smart_review_cache_v44"; // Default cache name
         const DEFAULT_REVIEWS = [
-            { name: "John Doe", gender: "male", date: "22 Nov 2024", text: "Great experience! Highly recommended." },
-            { name: "Jane Smith", gender: "female", date: "20 Nov 2024", text: "The service was amazing!" },
-            { name: "Alex Brown", gender: "male", date: "18 Nov 2024", text: "Good value for money." },
-                        { name: "John Doe", gender: "male", date: "22 Nov 2024", text: "Great experience! Highly recommended." },
-            { name: "Jane Smith", gender: "female", date: "20 Nov 2024", text: "The service was amazing!" },
-            { name: "Alex Brown", gender: "male", date: "18 Nov 2024", text: "Good value for money." },
-                        { name: "John Doe", gender: "male", date: "22 Nov 2024", text: "Great experience! Highly recommended." },
-            { name: "Jane Smith", gender: "female", date: "20 Nov 2024", text: "The service was amazing!" },
-            { name: "Alex Brown", gender: "male", date: "18 Nov 2024", text: "Good value for money." },
-                        { name: "John Doe", gender: "male", date: "22 Nov 2024", text: "Great experience! Highly recommended." },
-            { name: "Jane Smith", gender: "female", date: "20 Nov 2024", text: "The service was amazing!" },
+        
             { name: "Alex Brown", gender: "male", date: "18 Nov 2024", text: "Good value for money." }
         ];
 
