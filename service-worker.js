@@ -5,6 +5,7 @@ const urlsToCache = [
   '/index.html',
   '/style.css',
   '/app.js',
+  '/n.js'
 ];
 
 // Install event
