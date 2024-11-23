@@ -3,8 +3,9 @@ const unreadMessages = [
   { 
     title: "BUP", 
     content: "BUP | Model Test + Question Bank | মাত্র ৯৯ টাকায় ",
-    imageUrl: "https://i.ibb.co.com/NyBcWgH/PAYL1-Mk-DGzuie-Kyoili-Vq.webp", // Example image URL, optional
-        link: "https://chorcha.net/landing/biplobi-bup-24?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO"  // Link for Update available
+            link: "https://chorcha.net/landing/biplobi-bup-24?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" ,  // Link for Update available
+    imageUrl: "https://i.ibb.co.com/NyBcWgH/PAYL1-Mk-DGzuie-Kyoili-Vq.webp" // Example image URL, optional
+
   },
   { 
     title: "Science Department  ", 
@@ -26,12 +27,12 @@ const unreadMessages = [
   },
 { 
     title: "Powered by ", 
-    content: "© olosbd.com", 
+    content: "© olosbd.com"
 
   }
 
 ];
-const cacheName = "notification-v5";
+const cacheName = "notification-v05";
 
 // Initialize notification badge on load
 document.addEventListener("DOMContentLoaded", function() {
