@@ -1,46 +1,45 @@
 // Notification Data
 const unreadMessages = [
- {
-title:"hi",
-content:"good"
-},
-
- { 
-    title: "BUP", 
-    content: "BUP | Model Test + Question Bank | মাত্র ৯৯ টাকায় ",
-            link: "https://chorcha.net/landing/biplobi-bup-24?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" ,  // Link for Update available
-    imageUrl: "https://i.ibb.co.com/NyBcWgH/PAYL1-Mk-DGzuie-Kyoili-Vq.webp" // Example image URL, optional
-
+  {
+    title: "Hi",
+    content: "Good",
   },
-  { 
-    title: "Science Department  ", 
-    content: "ইঞ্জিনিয়ারিং + মেডিকেল+ ভার্সিটি 'ক' প্যাকেজ!", 
-    link: "https://chorcha.net/landing/biplobi-24-admission?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" , // Link for Update available
-    imageUrl: "https://i.ibb.co.com/0Gr3hCM/1732345057581.jpg"
+  {
+    title: "BUP",
+    content: "BUP | Model Test + Question Bank | মাত্র ৯৯ টাকায়",
+    link: "https://chorcha.net/landing/biplobi-bup-24?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO",
+    imageUrl: "https://i.ibb.co.com/NyBcWgH/PAYL1-Mk-DGzuie-Kyoili-Vq.webp",
   },
-    { 
-    title: "Arts Department", 
-    content: " ২৬ টি ভার্সিটির যেকোনো ১টি হতে পারে তোমার ক্যাম্পাস!শুধু বাংলা, ইংলিশ ও সাধারণ জ্ঞান পড়েই", 
-    link: "https://chorcha.net/landing/biplobi-24-b-unit?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" , // Link for Update available
-    imageUrl: "https://i.ibb.co.com/F4BZp07/HEf-Hig-YB-LUsvf-E8-R7e-Qt.webp"
+  {
+    title: "Science Department",
+    content: "ইঞ্জিনিয়ারিং + মেডিকেল+ ভার্সিটি 'ক' প্যাকেজ!",
+    link: "https://chorcha.net/landing/biplobi-24-admission?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO",
+    imageUrl: "https://i.ibb.co.com/0Gr3hCM/1732345057581.jpg",
   },
-    { 
-    title: "Commerce Department", 
-    content: "কমার্সের শিক্ষার্থীরা এডমিশনে সেরা হতে চাও? ১ প্যাকেজেই BBA+Varsity C+ IBA+ বিভাগ পরিবর্তন", 
-    link: "https://chorcha.net/landing/biplobi-24-c-unit?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" , // Link for Update available
-    imageUrl: "https://i.ibb.co.com/BrzjBCf/k-Mhl6h5q-VCzq-LEIZn-LVp-F.webp"
+  {
+    title: "Arts Department",
+    content:
+      "২৬ টি ভার্সিটির যেকোনো ১টি হতে পারে তোমার ক্যাম্পাস!শুধু বাংলা, ইংলিশ ও সাধারণ জ্ঞান পড়েই",
+    link: "https://chorcha.net/landing/biplobi-24-b-unit?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO",
+    imageUrl: "https://i.ibb.co.com/F4BZp07/HEf-Hig-YB-LUsvf-E8-R7e-Qt.webp",
   },
-{ 
-    title: "Powered by ", 
-    content: "© olosbd.com"
-
-  }
-
+  {
+    title: "Commerce Department",
+    content:
+      "কমার্সের শিক্ষার্থীরা এডমিশনে সেরা হতে চাও? ১ প্যাকেজেই BBA+Varsity C+ IBA+ বিভাগ পরিবর্তন",
+    link: "https://chorcha.net/landing/biplobi-24-c-unit?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO",
+    imageUrl: "https://i.ibb.co.com/BrzjBCf/k-Mhl6h5q-VCzq-LEIZn-LVp-F.webp",
+  },
+  {
+    title: "Powered by",
+    content: "© olosbd.com",
+  },
 ];
-const cacheName = "notification-v07";
+
+const cacheName = "notification-v-01";
 
 // Initialize notification badge on load
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const lastSeenCacheName = localStorage.getItem("notificationCacheName");
 
   if (unreadMessages.length > 0 && lastSeenCacheName !== cacheName) {
@@ -56,7 +55,7 @@ function openPopup() {
   const popupMessagesContainer = document.getElementById("popupMessages");
   popupMessagesContainer.innerHTML = ""; // Clear existing messages
 
-  unreadMessages.forEach(message => {
+  unreadMessages.forEach((message, index) => {
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("message");
 
@@ -81,6 +80,11 @@ function openPopup() {
       `;
     }
 
+    // Add a "Mark as Read" button
+    messageDiv.innerHTML += `
+      <button onclick="markAsRead(${index})" class="mark-as-read-btn">Mark as Read</button>
+    `;
+
     popupMessagesContainer.appendChild(messageDiv);
   });
 
@@ -94,5 +98,17 @@ function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
 
+// Function to mark a notification as read
+function markAsRead(index) {
+  unreadMessages.splice(index, 1); // Remove the notification
+  openPopup(); // Refresh popup content
+  if (unreadMessages.length === 0) {
+    document.getElementById("badge").style.display = "none";
+  }
+}
+
 // Attach event listener for notification button
 document.getElementById("notificationBtn").addEventListener("click", openPopup);
+
+// Add a close button event listener
+document.getElementById("closePopup").addEventListener("click", closePopup);
