@@ -4,8 +4,7 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
-  '/app.js',
-  '/n.js'
+  '/app.js'
 ];
 
 // Install event
