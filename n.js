@@ -32,7 +32,7 @@ const unreadMessages = [
   }
 
 ];
-const cacheName = "notification-v05";
+const cacheName = "notification-v06";
 
 // Initialize notification badge on load
 document.addEventListener("DOMContentLoaded", function() {
@@ -72,7 +72,7 @@ function openPopup() {
     // Check if there's a link
     if (message.link) {
       messageDiv.innerHTML += `
-        <a href="${message.link}" class="notification-link" target="_blank">চর্চা শুরু করো  ${message.title}</a>
+        <a href="${message.link}" class="notification-link" target="_blank">চর্চা শুরু করো ☞  ${message.title}</a>
       `;
     }
 
