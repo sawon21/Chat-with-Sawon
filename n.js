@@ -1,6 +1,11 @@
 // Notification Data
 const unreadMessages = [
-  { 
+ {
+title:"hi",
+content:"good"
+},
+
+ { 
     title: "BUP", 
     content: "BUP | Model Test + Question Bank | মাত্র ৯৯ টাকায় ",
             link: "https://chorcha.net/landing/biplobi-bup-24?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" ,  // Link for Update available
@@ -32,7 +37,7 @@ const unreadMessages = [
   }
 
 ];
-const cacheName = "notification-v06";
+const cacheName = "notification-v07";
 
 // Initialize notification badge on load
 document.addEventListener("DOMContentLoaded", function() {
