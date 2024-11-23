@@ -10,12 +10,8 @@ const unreadMessages = [
     content: "A new update is available for your app.", 
     link: "https://spp-test-app.netlify.app/" , // Link for Update available
     imageUrl: "https://i.ibb.co.com/FzPHjBt/app-testing-icon-simple-element-from-vector-34151964.jpg"
-  },
-  { 
-    title: " hi", 
-    content: "Someone sent you request.", 
-    link: "/friends" // Link for Friend Request
   }
+  
 ];
 const cacheName = "notification-j";
 
