@@ -10,10 +10,15 @@ const unreadMessages = [
     content: "A new update is available for your app.", 
     link: "https://spp-test-app.netlify.app/" , // Link for Update available
     imageUrl: "https://i.ibb.co.com/FzPHjBt/app-testing-icon-simple-element-from-vector-34151964.jpg"
+  },
+{ 
+    title: "Powered by ", 
+    content: "© olosbd.com", 
+   
   }
   
 ];
-const cacheName = "notification-v1";
+const cacheName = "notification-v2";
 
 // Initialize notification badge on load
 document.addEventListener("DOMContentLoaded", function() {
