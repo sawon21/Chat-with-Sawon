@@ -2,25 +2,26 @@
 const unreadMessages = [
   { 
     title: "BUP", 
-    content: "App Testing...",
+    content: "BUP | Model Test + Question Bank | মাত্র ৯৯ টাকায় ",
     imageUrl: "https://i.ibb.co.com/NyBcWgH/PAYL1-Mk-DGzuie-Kyoili-Vq.webp" // Example image URL, optional
+        link: "https://chorcha.net/landing/biplobi-bup-24?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" , // Link for Update available
   },
   { 
-    title: "Science ", 
+    title: "Science Department  ", 
     content: "ইঞ্জিনিয়ারিং + মেডিকেল+ ভার্সিটি 'ক' প্যাকেজ!", 
-    link: "https://spp-test-app.netlify.app/" , // Link for Update available
+    link: "https://chorcha.net/landing/biplobi-24-admission?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" , // Link for Update available
     imageUrl: "https://i.ibb.co.com/0Gr3hCM/1732345057581.jpg"
   },
     { 
-    title: "Arts", 
+    title: "Arts Department", 
     content: " ২৬ টি ভার্সিটির যেকোনো ১টি হতে পারে তোমার ক্যাম্পাস!শুধু বাংলা, ইংলিশ ও সাধারণ জ্ঞান পড়েই", 
-    link: "https://spp-test-app.netlify.app/" , // Link for Update available
+    link: "https://chorcha.net/landing/biplobi-24-b-unit?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" , // Link for Update available
     imageUrl: "https://i.ibb.co.com/F4BZp07/HEf-Hig-YB-LUsvf-E8-R7e-Qt.webp"
   },
     { 
-    title: "Commerce", 
+    title: "Commerce Department", 
     content: "কমার্সের শিক্ষার্থীরা এডমিশনে সেরা হতে চাও? ১ প্যাকেজেই BBA+Varsity C+ IBA+ বিভাগ পরিবর্তন", 
-    link: "https://spp-test-app.netlify.app/" , // Link for Update available
+    link: "https://chorcha.net/landing/biplobi-24-c-unit?_promo=dgcc20&affiliate=SU-PpAF-XFtcSqsO" , // Link for Update available
     imageUrl: "https://i.ibb.co.com/BrzjBCf/k-Mhl6h5q-VCzq-LEIZn-LVp-F.webp"
   },
 { 
@@ -70,7 +71,7 @@ function openPopup() {
     // Check if there's a link
     if (message.link) {
       messageDiv.innerHTML += `
-        <a href="${message.link}" class="notification-link" target="_blank">Go to ${message.title}</a>
+        <a href="${message.link}" class="notification-link" target="_blank">চর্চা শুরু করো  ${message.title}</a>
       `;
     }
 
