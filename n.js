@@ -1,24 +1,36 @@
 // Notification Data
 const unreadMessages = [
   { 
-    title: "New Message", 
+    title: "BUP", 
     content: "App Testing...",
-    imageUrl: "https://i.ibb.co.com/QbW7FWV/testing-web-app-develop-optimization-icon-software-test-analysis-line-vector-mobile-phone-app-web-ap.jpg" // Example image URL, optional
+    imageUrl: "https://i.ibb.co.com/NyBcWgH/PAYL1-Mk-DGzuie-Kyoili-Vq.webp" // Example image URL, optional
   },
   { 
-    title: "Update Available", 
-    content: "A new update is available for your app.", 
+    title: "Science ", 
+    content: "ইঞ্জিনিয়ারিং + মেডিকেল+ ভার্সিটি 'ক' প্যাকেজ!", 
     link: "https://spp-test-app.netlify.app/" , // Link for Update available
-    imageUrl: "https://i.ibb.co.com/FzPHjBt/app-testing-icon-simple-element-from-vector-34151964.jpg"
+    imageUrl: "https://i.ibb.co.com/0Gr3hCM/1732345057581.jpg"
+  },
+    { 
+    title: "Arts", 
+    content: " ২৬ টি ভার্সিটির যেকোনো ১টি হতে পারে তোমার ক্যাম্পাস!শুধু বাংলা, ইংলিশ ও সাধারণ জ্ঞান পড়েই", 
+    link: "https://spp-test-app.netlify.app/" , // Link for Update available
+    imageUrl: "https://i.ibb.co.com/F4BZp07/HEf-Hig-YB-LUsvf-E8-R7e-Qt.webp"
+  },
+    { 
+    title: "Commerce", 
+    content: "কমার্সের শিক্ষার্থীরা এডমিশনে সেরা হতে চাও? ১ প্যাকেজেই BBA+Varsity C+ IBA+ বিভাগ পরিবর্তন", 
+    link: "https://spp-test-app.netlify.app/" , // Link for Update available
+    imageUrl: "https://i.ibb.co.com/BrzjBCf/k-Mhl6h5q-VCzq-LEIZn-LVp-F.webp"
   },
 { 
     title: "Powered by ", 
     content: "© olosbd.com", 
-   
+
   }
-  
+
 ];
-const cacheName = "notification-v2";
+const cacheName = "notification-v3";
 
 // Initialize notification badge on load
 document.addEventListener("DOMContentLoaded", function() {
@@ -77,4 +89,3 @@ function closePopup() {
 
 // Attach event listener for notification button
 document.getElementById("notificationBtn").addEventListener("click", openPopup);
-
