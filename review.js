@@ -1,8 +1,8 @@
         // Default Configuration
-        let CACHE_NAME = "smart_review_cache_v44"; // Default cache name
+        let CACHE_NAME = "smart_review_cache_v4"; // Default cache name
         const DEFAULT_REVIEWS = [
         
-            { name: "Alex Brown", gender: "male", date: "18 Nov 2024", text: "Good value for money." }
+            { name: "Abu Rayhan Rahad", gender: "male", date: "01 Nov 2024", text: "Website টা পুরাই আগুন 🔥 🔥 🔥" }
         ];
 
         // DOM Elements
