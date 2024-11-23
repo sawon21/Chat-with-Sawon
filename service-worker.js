@@ -1,10 +1,13 @@
 // Cache names
-const CACHE_NAME = 'my-cache-hg564hh90uh5665456hjy56';
+const CACHE_NAME = 'my-cache-v7uh5665456hjy56';
 const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
-  '/app.js'
+  '/app.js',
+  '/n.js',
+  '/review.js',
+  '/report.html'
 ];
 
 // Install event
