@@ -448,7 +448,36 @@ body {
 <body>
 
 <div class="card text-center primary-color p-2 rounded my-2" style="font-family: 'Josefin Sans';background: #345c72; border-color: white; border-radius: 10px; box-sizing: border-box; color: white; display: flex; flex-direction: column; font-size: 1.2rem; font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem; margin-top: 0.5rem; min-width: 0px; overflow-wrap: break-word; padding: 0.5rem; position: relative; text-align: center;">
-<b>Admission Journey</b></div>
+<b>Admission Journey</b>
+<br>
+ <div class="review-container">
+        <!-- Review Icon -->
+        <div id="review-icon" class="review-icon">
+            <span class="material-icons">chat_bubble</span>
+            <div class="badge" id="review-badge">0</div>
+        </div>
+
+        <!-- Review Box -->
+        <div id="review-box" class="review-box">
+            <header>Feedback helps improve future experiences. ☞ <mark><a href="#"> ✍️</a></mark></header>
+            <div class="review-container" id="reviews">
+                <!-- Reviews will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+  <!-- Popup content -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2 id="popupTitle">Notifications</h2>
+   <hr>
+      <div id="popupMessages"></div>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+      
+    </div>
+
+</div>
  
 <!-- Install Notification Banner -->
   <div id="installNotification" class="install-notification" style="display: none;">
