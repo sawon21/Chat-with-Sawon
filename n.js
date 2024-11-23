@@ -38,7 +38,7 @@ const unreadMessages = [
   }
 
 ];
-const cacheName = "notification-v-003";
+const cacheName = "notification-v-004";
 
 // Initialize notification badge on load
 document.addEventListener("DOMContentLoaded", function() {
