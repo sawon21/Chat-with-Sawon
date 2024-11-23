@@ -19,3 +19,178 @@
 .install-notification button {
   margin-left: 10px;
 }
+ /*  notification styling */
+    .icon-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      background: blue;
+      border: none;
+      outline: none;
+      border-radius: 50%;
+      font-size: 24px;
+      transition: background 0.3s ease;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    .icon-button:hover .material-icons {
+      animation: bounce 0.5s infinite;
+    }
+
+    .icon-button:hover {
+      cursor: pointer;
+      background: #45a049;
+    }
+
+    .icon-button:active {
+      background: #3e8e41;
+    }
+
+    .icon-button__badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 15px;
+      height: 15px;
+      background: red;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 12px;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .popup-content h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .popup-content p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .popup-content button {
+      background-color: red;
+      color: #fff;
+      border: none;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-content button:hover {
+      background-color:#710118 ;
+    }
+
+    .message {
+      text-align: left;
+      margin: 10px 0;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .message h3 {
+      margin: 0;
+      font-size: 17px;
+      color: blue;
+      background-color: #999999;
+      font-weight: bold;
+    }
+
+    .message p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+/* Image styling for notifications */
+.message-img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Notification link styling */
+.notification-link {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 4px 12px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.notification-link:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Custom scrollbar styling */
+#popupMessages {
+  max-height: 450px; /* Set a maximum height for the container */
+  overflow-y: auto;  /* Enable vertical scrolling */
+}
+
+/* Styling the scrollbar */
+#popupMessages::-webkit-scrollbar {
+  width: 1px; /* Width of the scrollbar */
+}
+
+/* Track */
+#popupMessages::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 1px; /* Rounded corners for the track */
+}
+
+/* Handle */
+#popupMessages::-webkit-scrollbar-thumb {
+  background: red; /* Color of the scrollbar handle */
+  border-radius: 1px; /* Rounded corners for the handle */
+}
+
+/* Handle on hover */
+#popupMessages::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovering over the handle */
+}
