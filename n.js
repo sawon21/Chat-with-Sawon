@@ -1,9 +1,6 @@
 // Notification Data
 const unreadMessages = [
-  {
-title:"hi",
-content:"good"},
-
+ 
 { 
     title: "BUP", 
     content: "BUP | Model Test + Question Bank | মাত্র ৯৯ টাকায় ",
@@ -36,7 +33,7 @@ content:"good"},
   }
 
 ];
-const cacheName = "notification-v-002";
+const cacheName = "notification-v-003";
 
 // Initialize notification badge on load
 document.addEventListener("DOMContentLoaded", function() {
