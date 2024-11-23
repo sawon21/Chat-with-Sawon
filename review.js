@@ -1,5 +1,5 @@
         // Default Configuration
-        let CACHE_NAME = "smart_review_cache_v05"; // Default cache name
+        let CACHE_NAME = "smart_review_cache_v06"; // Default cache name
         const DEFAULT_REVIEWS = [
         
             
