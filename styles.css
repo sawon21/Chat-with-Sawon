@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');  
+
+body {
+    background-color: #141414;
+    font-family: "Caudex", serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.chat-box {
+    max-height: 550px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: ;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #253569;
+}
+
+.message.user {
+    background-color: #ee1;
+    align-self: flex-start;
+}
+
+.message.admin {
+    background-color: red;
+    align-self: flex-end;
+}
+
+.btn-send {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+#messageInput {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    height: 45px;
+}
+
+#userMessage {
+    flex-grow: 1;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.header-title {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+#signUpPage, #chatPage {
+    display: none;
+}
+
+#signUpPage {
+    display: block;
+}
+
+h5 {
+    color: #e7bb67;
+}
+
+h6 {
+    color: pink;
+}
+/* Edit and Delete Button Styling */
+button.btn-sm {
+    font-size: 8px; /* Smaller icon size */
+    padding: 3px; /* Adjust padding to make buttons more compact */
+}
+
+/* Optional: Adjust icon size inside buttons */
+button.btn-sm i {
+    font-size: 8px; /* Make the icons smaller */
+}
