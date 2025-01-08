@@ -37,6 +37,7 @@ window.onload = function () {
         chatPage.style.display = "block";
         document.getElementById("welcomeName").textContent = currentUserName;
         loadChat();
+        sendAutoMessages(); // Send Auto Messages (Welcome, Connect Message)
     } else {
         signUpPage.style.display = "block";
         chatPage.style.display = "none";
@@ -56,7 +57,8 @@ signUpForm.addEventListener("submit", function (event) {
 function createUserAccount(name) {
     const newUserId = database.ref().child('users').push().key;
     const userData = {
-        name: name
+        name: name,
+        firstTimeLogin: true // Mark as first time login
     };
 
     database.ref('users/' + newUserId).set(userData).then(function () {
@@ -67,7 +69,58 @@ function createUserAccount(name) {
         chatPage.style.display = "block";
         document.getElementById("welcomeName").textContent = name;
         loadChat();
+        sendAutoMessages(); // Send Auto Messages on first login
     });
+}
+
+// Function to send auto messages (welcome and connection attempt)
+function sendAutoMessages() {
+    // Check if the user is logging in for the first time
+    const userRef = database.ref('users/' + currentUserId);
+    userRef.once('value', function(snapshot) {
+        const userData = snapshot.val();
+        if (userData && userData.firstTimeLogin) {
+            // Send First Message: Welcome Message from Bot
+            const welcomeMessage = `Welcome, ${currentUserName}! Do you want to have a conversation?`;
+            sendMessageToFirebase(welcomeMessage, 'bot'); // Send from bot
+
+            // Send Second Message: Notification from Bot about trying to connect Mehedi
+            const secondMessage = "We are trying to connect Mehedi Al Hasan Sawon, please wait...";
+            sendMessageToFirebase(secondMessage, 'bot'); // Send from bot
+
+            // Mark the First Time Login as Done (to prevent future auto messages)
+            userRef.update({ firstTimeLogin: false });
+
+            // Notify Admin that User is Ready (Admin gets notification but no message sent to user directly)
+            const adminNotification = `${currentUserName}! Thank you for join us`;
+            const timestamp = new Date().toLocaleString();
+            const messageData = {
+                senderId: "bot", // Mark as bot's message
+                senderName: "Bot",
+                text: adminNotification,
+                timestamp: timestamp
+            };
+
+            // Send Notification to Admin (This message doesn't go to the user)
+            database.ref("messages/" + adminId + "/" + currentUserId).push(messageData);
+        }
+    });
+}
+
+// Function to send message to Firebase with a sender type (either user or bot)
+function sendMessageToFirebase(messageText, senderType = 'user') {
+    const timestamp = new Date().toLocaleString(); // Generate Timestamp
+    const messageData = {
+        senderId: senderType === 'bot' ? 'bot' : currentUserId, // Set bot as sender for bot messages
+        senderName: senderType === 'bot' ? 'Bot' : currentUserName, // Show "Bot" as sender for bot messages
+        text: messageText,
+        timestamp: timestamp
+    };
+
+    // Send Message to Admin-User Chat
+    database.ref("messages/" + adminId + "/" + currentUserId).push(messageData);
+    // Mirror Message in User-Admin Chat
+    database.ref("messages/" + currentUserId + "/" + adminId).push(messageData);
 }
 
 // Load Chat Between User and Admin
@@ -86,25 +139,38 @@ function loadMessages() {
         const messageElement = document.createElement("div");
         messageElement.classList.add("message");
 
-        // Add Sender's Name
+        // Add Sender's Name with Logo for Admin and Bot
+        const senderNameContainer = document.createElement("div");
+        senderNameContainer.style.display = "flex";
+        senderNameContainer.style.alignItems = "center";
+        senderNameContainer.style.marginBottom = "5px";
+
+        // Display Admin Name and Bot Name only
         const senderName = document.createElement("div");
         senderName.style.fontWeight = "bold";
         senderName.style.color = "yellow";
-        senderName.style.marginBottom = "5px";
+        senderName.style.marginRight = "10px"; // Space between logo and name
 
-        // Debug: Log sender ID and admin ID to check the condition
-        console.log("Message sender ID: " + messageData.senderId);
-        console.log("Admin ID: " + adminId);
-
+        // Only show Admin's name or Bot's name, not the User's name
         if (messageData.senderId === adminId) {
-            // Display 'Mehedi' if sender is admin
-            senderName.textContent = adminName;
-        } else {
-            // Display the message sender's name if not the admin
-            senderName.textContent = messageData.senderName;
+            senderName.textContent = "Mehedi Al Hasan Sawon";  // Admin Name
+        } else if (messageData.senderId === 'bot') {
+            senderName.textContent = "Bot";  // Bot Name
         }
 
-        console.log("Sender Name displayed: " + senderName.textContent); // Debug log to see the displayed name
+        const senderLogo = document.createElement("img");
+
+        // Display Logo only for Admin's Messages
+        if (messageData.senderId === adminId) {
+            senderLogo.src = "verify.png"; // Path to your admin's logo
+            senderLogo.style.width = "20px"; // Set the size of the logo
+            senderLogo.style.height = "20px"; // Set the size of the logo
+            senderLogo.style.borderRadius = "50%"; // Optional: make the logo round
+        }
+
+        // Append logo and name
+        senderNameContainer.appendChild(senderLogo);
+        senderNameContainer.appendChild(senderName);
 
         // Add Message Content
         const messageContent = document.createElement("span");
@@ -117,11 +183,11 @@ function loadMessages() {
         messageTimestamp.textContent = messageData.timestamp;
 
         // Append Elements to Message Container
-        messageElement.appendChild(senderName);
+        messageElement.appendChild(senderNameContainer);
         messageElement.appendChild(messageContent);
         messageElement.appendChild(messageTimestamp);
 
-        // Add Action Buttons for User's Messages
+        // Add Action Buttons for User's Messages (Optional, but will not be shown for Bot/Admin)
         if (messageData.senderId === currentUserId) {
             const actionsContainer = document.createElement("span");
             actionsContainer.style.float = "right";
@@ -152,31 +218,14 @@ function loadMessages() {
         messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to Latest Message
     });
 }
-
-// Send Message
+// Send User Message
 sendUserMessageButton.addEventListener("click", function () {
     const messageText = userMessageInput.value.trim();
     if (messageText !== "") {
-        sendMessage(messageText);
+        sendMessageToFirebase(messageText, 'user');
         userMessageInput.value = ""; // Clear Input Field
     }
 });
-
-// Send Message to Firebase
-function sendMessage(messageText) {
-    const timestamp = new Date().toLocaleString(); // Generate Timestamp
-    const messageData = {
-        senderId: currentUserId,
-        senderName: currentUserName,
-        text: messageText,
-        timestamp: timestamp
-    };
-
-    // Send Message to Admin-User Chat
-    database.ref("messages/" + adminId + "/" + currentUserId).push(messageData);
-    // Mirror Message in User-Admin Chat
-    database.ref("messages/" + currentUserId + "/" + adminId).push(messageData);
-}
 
 // Edit a Message
 function editMessage(messageKey, currentText) {
@@ -197,4 +246,18 @@ function deleteMessage(messageKey) {
         database.ref("messages/" + adminId + "/" + currentUserId + "/" + messageKey).remove();
         database.ref("messages/" + currentUserId + "/" + adminId + "/" + messageKey).remove();
     }
+}// Auto Scroll to Latest Messages on New Message
+messagesContainer.addEventListener("DOMNodeInserted", function () {
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+});
+
+// Function to Logout User
+function logoutUser() {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userName');
+    window.location.reload();
 }
+
+// Handle Logout Action
+const logoutButton = document.getElementById("logoutButton");
+logoutButton.addEventListener("click", logoutUser);

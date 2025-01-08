@@ -26,11 +26,11 @@
             overflow-y: auto;
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #;
+            background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
         }
-                .message {
+        .message {
             padding: 12px;
             margin: 10px 0;
             border-radius: 20px;
@@ -42,7 +42,7 @@
             align-self: flex-start;
         }
         .message.admin {
-            background-color:;
+            background-color: #007bff;
             align-self: flex-end;
         }
         .btn-send {
@@ -99,16 +99,16 @@
             gap: 10px;
         }
         #back-icon {
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
-    position: fixed;
-    top: 30px;
-    left: 20px;
-}
-#back-icon:hover {
-    color: #007bff;
-}
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            position: fixed;
+            top: 30px;
+            left: 20px;
+        }
+        #back-icon:hover {
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
@@ -172,6 +172,7 @@ const sendAdminMessageButton = document.getElementById("sendAdminMessage");
 let currentUserId;
 let currentUserName;
 let currentChatId;
+let adminName = "Admin";  // Admin's name
 
 // Fetch users list from Firebase
 function loadUserList() {
@@ -212,13 +213,13 @@ function loadChatMessages() {
         messageElement.classList.add("message");
 
         // Style messages based on sender
-        if (messageData.sender === currentUserName) {
+        if (messageData.sender === adminName) {
             messageElement.classList.add("admin");
         } else {
             messageElement.classList.add("user");
         }
 
-        messageElement.textContent = messageData.text;
+        messageElement.textContent = `${messageData.sender}: ${messageData.text}`;
         messagesContainer.appendChild(messageElement);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     });
@@ -236,7 +237,7 @@ sendAdminMessageButton.addEventListener("click", function() {
 // Send message to Firebase
 function sendMessageToUser(messageText) {
     const messageData = {
-        sender: currentUserName,
+        sender: adminName,
         text: messageText,
         timestamp: Date.now()
     };
@@ -275,10 +276,10 @@ window.onload = function() {
         setUserStatus(snapshot.key, 'online');
     });
 };
+
 document.getElementById('back-icon').addEventListener('click', function () {
     window.location.href = 'admin.html'; // Replace with your target URL
 });
-
 </script>
 
 <!-- Bootstrap JS -->
